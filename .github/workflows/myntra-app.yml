@@ -44,8 +44,7 @@ jobs:
           ls -la src
 
       - name: Build Docker Image
-        run: |
-          docker build -t myntra-app .
+        run: docker build -t myntra-app .
 
       - name: Stop Old Container
         run: |
