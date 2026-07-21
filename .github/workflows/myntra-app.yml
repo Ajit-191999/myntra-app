@@ -27,6 +27,22 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
+      - name: Debug Project Structure
+        run: |
+          echo "Current directory:"
+          pwd
+
+          echo "Repository files:"
+          find . -maxdepth 2 -type f | sort
+
+          echo ""
+          echo "Public folder:"
+          ls -la public
+
+          echo ""
+          echo "Source folder:"
+          ls -la src
+
       - name: Build Docker Image
         run: |
           docker build -t myntra-app .
